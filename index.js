@@ -13,10 +13,11 @@ const cors = require("cors");
 dotenv.config();
 
 app.use(express.json());
+
 const corsOptions = {
-  origin: 'https://wearkits-ecommerce-store.vercel.app',
-  methods: ['GET', 'POST'], // Specify the HTTP methods you want to allow
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  origin: '*', // Allow requests from any origin
+  methods: '*', // Allow requests with any HTTP method
+  allowedHeaders: ['Content-Type', 'Authorization'], // Specify the allowed headers
   credentials: true, // Allow cookies to be sent cross-origin
 };
 
