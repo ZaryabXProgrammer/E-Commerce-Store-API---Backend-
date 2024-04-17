@@ -17,11 +17,14 @@ app.use(cors());
 
 mongoose
   .connect(process.env.MONGO_URI)
-
   .then(() => console.log("MongoDb Connected"))
   .catch((err) => {
     console.log(err);
   });
+
+app.use("/", (req, res) => {
+  res.send("Server Is Running");
+});
 
 app.use("/api/auth", authRouter);
 
