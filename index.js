@@ -13,7 +13,14 @@ const cors = require("cors");
 dotenv.config();
 
 app.use(express.json());
-app.use(cors());
+const corsOptions = {
+  origin: 'https://wearkits-ecommerce-store.vercel.app',
+  methods: ['GET', 'POST'], // Specify the HTTP methods you want to allow
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true, // Allow cookies to be sent cross-origin
+};
+
+app.use(cors(corsOptions));
 
 mongoose
   .connect(process.env.MONGO_URI)
